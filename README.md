@@ -4,7 +4,7 @@ Um **simulador 3D interativo e didático das leis da termodinâmica** para aluno
 
 ## 🎓 Autoria e contexto
 
-Este simulador foi desenvolvido como **material de apoio para o seminário de apresentação das leis da termodinâmica**, dentro da **disciplina optativa Termodinâmica**.
+Este simulador foi desenvolvido como **material de apoio a aulas e seminários sobre a termodinâmica**, com foco na **disciplina optativa Termodinâmica**.
 
 | Papel | Nome |
 |---|---|
