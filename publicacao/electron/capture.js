@@ -4,7 +4,7 @@ const { app, BrowserWindow } = require("electron");
 const path = require("path");
 const fs = require("fs");
 
-const OUT_DIR = path.join(__dirname, "..", "screenshots");
+const OUT_DIR = path.join(__dirname, "..", "..", "screenshots");
 const appDir = path.join(__dirname, "..", "app");
 const W = 1440;
 const H = 900;
