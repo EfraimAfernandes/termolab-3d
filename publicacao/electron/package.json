@@ -1,0 +1,71 @@
+{
+  "name": "termodinamica-3d",
+  "version": "1.0.0",
+  "description": "Laboratório Virtual de Física — Simulador 3D interativo das Leis da Termodinâmica (ferramenta educacional, MIT).",
+  "author": "Efraim Almeida Fernandes",
+  "license": "MIT",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win",
+    "screenshots": "electron capture.js"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^26.15.3"
+  },
+  "build": {
+    "toolsets": {
+      "winCodeSign": "1.1.0"
+    },
+    "appId": "br.edu.termodinamica3d",
+    "productName": "Termodinamica3D",
+    "copyright": "Copyright © 2026 Efraim Almeida Fernandes — Licença MIT",
+    "directories": {
+      "output": "../dist",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      {
+        "from": "../app",
+        "to": "app",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.png",
+      "artifactName": "${productName}-${version}-${arch}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Termodinamica3D",
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "installerHeaderIcon": "build/icon.ico"
+    },
+    "portable": {
+      "artifactName": "${productName}-${version}-portable.${ext}"
+    }
+  }
+}

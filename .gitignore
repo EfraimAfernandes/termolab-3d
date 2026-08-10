@@ -1,0 +1,19 @@
+# Node / Electron
+node_modules/
+publicacao/electron/node_modules/
+
+# Builds e binários — publicar como GitHub Release, não versionar
+publicacao/dist/
+publicacao/electron/dist/
+
+# Ambiente interno (não versionar)
+.freebuff/
+
+# Logs e temporários
+*.log
+*.tmp
+
+# Sistema
+.DS_Store
+Thumbs.db
+desktop.ini

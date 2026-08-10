@@ -1,0 +1,216 @@
+Crie um simulador 3D interativo e didático das leis da termodinâmica, em um único projeto web completo usando HTML, CSS e JavaScript, com Three.js para a cena 3D. Quero um resultado excelente, visualmente bonito, rápido, fluido, responsivo e pronto para abrir no navegador sem backend. Use código limpo, organizado e comentado apenas quando realmente necessário. [Não escreva explicações fora do código; entregue o projeto completo.]
+
+OBJETIVO GERAL
+Desenvolva uma aplicação educacional interativa que ensine as 4 leis da termodinâmica:
+- Lei Zero
+- Primeira Lei
+- Segunda Lei
+- Terceira Lei
+
+REQUISITOS TÉCNICOS
+- Entregue em arquivos separados:
+  1. index.html
+  2. style.css
+  3. script.js
+- Use Three.js para a visualização 3D.
+- Não use backend.
+- Não use bibliotecas desnecessárias além de Three.js.
+- O projeto deve rodar apenas abrindo o index.html ou com Live Server.
+- O código deve ser performático e bem estruturado.
+- Faça layout responsivo para desktop e mobile.
+- Use tema visual científico/futurista elegante, sem exagero.
+- Adicione modo claro/escuro com botão de alternância.
+- Use animações suaves.
+- Respeite acessibilidade: contraste bom, labels, aria quando necessário, botões claros.
+
+ESTRUTURA DA APLICAÇÃO
+Crie a interface com:
+1. Cabeçalho com título do projeto.
+2. Menu lateral ou barra superior para selecionar cada lei.
+3. Área principal com canvas 3D.
+4. Painel explicativo da lei selecionada.
+5. Painel de controles interativos.
+6. Área de notas/resumo didático.
+7. Botão “Resetar simulação”.
+8. Botão “Play/Pause”.
+9. Indicadores numéricos em tempo real.
+
+CENA 3D
+A cena deve ser bonita e clara, com câmera orbitável e boa iluminação.
+Use elementos 3D para representar partículas, energia, temperatura, equilíbrio, trabalho e entropia.
+Adicione:
+- câmera perspectiva
+- iluminação ambiente e direcional
+- grid ou ambiente sutil
+- eixos ou referências discretas
+- animação contínua com requestAnimationFrame
+- resize automático da janela
+- interação por mouse/touch
+- orbit controls se for conveniente
+
+SIMULAÇÕES POR LEI
+
+1) LEI ZERO DA TERMODINÂMICA
+Objetivo: mostrar equilíbrio térmico.
+Simulação:
+- Três corpos/sistemas A, B e C.
+- A e B podem entrar em equilíbrio.
+- B e C podem entrar em equilíbrio.
+- Mostrar visualmente que então A e C também estão em equilíbrio térmico.
+Representação:
+- Blocos ou esferas com cores baseadas na temperatura.
+- Transferência de calor visual com partículas, brilho ou gradiente.
+Interação:
+- sliders para temperatura inicial de A, B e C
+- botão para iniciar equilíbrio
+- mostrar temperaturas convergindo
+Explicação didática:
+- incluir nota curta e clara explicando o conceito de temperatura e equilíbrio térmico
+
+2) PRIMEIRA LEI DA TERMODINÂMICA
+Objetivo: mostrar conservação de energia.
+Simulação:
+- Um pistão/cilindro 3D com gás interno.
+- Aquecimento aumenta energia interna.
+- Expansão realiza trabalho.
+- Mostrar a relação entre calor, trabalho e variação da energia interna.
+Representação:
+- partículas dentro de cilindro
+- pistão móvel
+- indicador de calor entrando
+- indicador de trabalho realizado
+Interação:
+- slider de calor adicionado
+- slider de volume
+- botão para compressão/expansão
+- medidores de U, Q e W
+Explicação:
+- exibir fórmula em destaque: ΔU = Q - W
+- explicar cada termo de modo simples
+
+3) SEGUNDA LEI DA TERMODINÂMICA
+Objetivo: mostrar entropia e irreversibilidade.
+Simulação:
+- Gás inicialmente organizado em uma região do recipiente e depois se dispersando.
+- Fluxo espontâneo de calor do corpo quente para o frio.
+- Nunca o contrário sem intervenção externa.
+Representação:
+- partículas se espalhando
+- mapa de cores
+- medidor de entropia crescente
+Interação:
+- botão “misturar sistema”
+- controle de diferença de temperatura
+- toggle para “processo natural” vs “intervenção externa”
+Explicação:
+- mostrar que a entropia tende a aumentar
+- explicar irreversibilidade e direção natural dos processos
+
+4) TERCEIRA LEI DA TERMODINÂMICA
+Objetivo: mostrar comportamento próximo do zero absoluto.
+Simulação:
+- reduzir a temperatura progressivamente.
+- movimento das partículas fica cada vez menor.
+- mostrar que atingir exatamente 0 K é impossível por processos finitos.
+Representação:
+- partículas desacelerando
+- brilho reduzindo
+- indicador de temperatura em Kelvin
+Interação:
+- slider de resfriamento
+- botão “aproximar de 0 K”
+- mensagem visual indicando limite assintótico
+Explicação:
+- destacar que a entropia de um cristal perfeito tende a um mínimo quando T tende a 0 K
+
+CONTEÚDO DIDÁTICO
+Para cada lei, inclua:
+- título
+- definição curta
+- explicação simples
+- exemplo cotidiano
+- aplicação prática em ciência/engenharia
+- observação importante
+- fórmula relevante quando existir
+- notas explicativas em linguagem clara e acadêmica
+
+Exemplos desejados:
+- Lei Zero: termômetros
+- Primeira Lei: motor térmico, pistão
+- Segunda Lei: geladeira, difusão, eficiência limitada
+- Terceira Lei: criogenia
+
+PAINEL DE INFORMAÇÕES
+Mostre valores atualizados em tempo real, como:
+- temperatura
+- energia interna
+- calor
+- trabalho
+- entropia
+- estado de equilíbrio
+- velocidade média das partículas
+
+UX E QUALIDADE
+- Interface bonita, moderna, limpa e profissional.
+- Visual coerente com educação científica.
+- Não faça algo genérico ou infantil.
+- Os controles devem ser intuitivos.
+- Cada lei deve parecer um “módulo” próprio dentro da mesma aplicação.
+- Troca de módulos com transição suave.
+- O texto explicativo deve mudar conforme o módulo selecionado.
+- O código deve ser bem separado em funções/classes.
+- Evite repetição desnecessária.
+- Priorize performance e clareza visual.
+
+ORGANIZAÇÃO DO CÓDIGO
+No JavaScript:
+- crie uma arquitetura modular
+- funções para initScene, animate, resize, createUI, loadLawModule, resetSimulation
+- classes ou objetos para cada lei
+- update loop separado por módulo
+- comentários curtos apenas onde forem úteis
+
+NO HTML
+- estrutura semântica
+- canvas 3D
+- painéis laterais
+- controles
+- área de notas
+- indicadores
+
+NO CSS
+- design premium
+- responsivo
+- painéis translúcidos elegantes
+- botões bem desenhados
+- tipografia legível
+- boa hierarquia visual
+
+IMPORTANTE
+- Entregue o código completo dos 3 arquivos.
+- Não entregue pseudocódigo.
+- Não resuma.
+- Não deixe partes “para completar depois”.
+- Não use placeholders vagos.
+- Tudo deve sair funcional.
+- Se necessário, use dados simulados coerentes.
+- Se alguma física for simplificada, sinalize isso nas notas sem comprometer a utilidade didática.
+- Garanta que o projeto esteja utilizável imediatamente.
+
+EXTRA DE EXCELÊNCIA
+Se possível, inclua:
+- tooltip nos controles
+- mini tutorial inicial
+- botão “ver explicação”
+- legenda visual das cores
+- transições elegantes entre as leis
+- HUD informativo sobre o sistema
+- pequenos efeitos visuais que reforcem o entendimento sem pesar a performance
+
+SAÍDA ESPERADA
+Forneça na resposta, nesta ordem:
+1. index.html
+2. style.css
+3. script.js
+
+Cada arquivo deve vir completo, pronto para copiar e colar.
