@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Termodinâmica 3D — Simulador Interativo</title>
+    <!-- Fontes locais (offline) -->
+    <link rel="stylesheet" href="vendor/fonts/fonts.css">
+    <!-- Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- App Container -->
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="logo-area">
+                <svg class="header-icon" viewBox="0 0 24 24" width="24" height="24">
+                    <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/>
+                </svg>
+                <div class="logo-text">
+                    <h1>TERMODINÂMICA <span>3D</span></h1>
+                    <p class="subtitle">Laboratório Virtual de Física</p>
+                </div>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Alternar Tema" title="Alternar Modo Escuro/Claro">
+                    <svg class="sun-icon" viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+                    </svg>
+                    <svg class="moon-icon" viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M12.3 22h-.1c-5.5 0-10-4.5-10-10 0-4.8 3.5-8.9 8.2-9.8.6-.1 1.2.3 1.3.9.1.6-.3 1.2-.9 1.3-3.7.8-6.4 4-6.4 7.8 0 4.4 3.6 8 8 8 3.8 0 7.1-2.7 7.8-6.4.1-.6.7-1 1.3-.9.6.1 1 .7.9 1.3-.9 4.7-5 8.2-9.8 8.2-.1-.2-.1-.2-.2-.2z"/>
+                    </svg>
+                </button>
+                <button id="tutorial-btn" class="icon-btn" aria-label="Tutorial" title="Como Utilizar o Simulador">
+                    <svg viewBox="0 0 24 24" width="20" height="20">
+                        <path fill="currentColor" d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 16h-2v-2h2v2zm1.07-7.75l-.9.92C12.45 11.9 12 12.5 12 14h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/>
+                    </svg>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Layout -->
+        <main class="main-layout">
+            <!-- Sidebar: Law Selectors -->
+            <nav class="sidebar-nav" aria-label="Navegação de Módulos">
+                <button class="nav-item active" data-law="0">
+                    <span class="law-num">0</span>
+                    <span class="law-name">Lei Zero</span>
+                    <span class="law-desc">Equilíbrio Térmico</span>
+                </button>
+                <button class="nav-item" data-law="1">
+                    <span class="law-num">1ª</span>
+                    <span class="law-name">Primeira Lei</span>
+                    <span class="law-desc">Conservação da Energia</span>
+                </button>
+                <button class="nav-item" data-law="2">
+                    <span class="law-num">2ª</span>
+                    <span class="law-name">Segunda Lei</span>
+                    <span class="law-desc">Entropia e Irreversibilidade</span>
+                </button>
+                <button class="nav-item" data-law="3">
+                    <span class="law-num">3ª</span>
+                    <span class="law-name">Terceira Lei</span>
+                    <span class="law-desc">Zero Absoluto</span>
+                </button>
+                <button class="nav-item" data-law="4">
+                    <span class="law-num">V2</span>
+                    <span class="law-name">Conceitos & Ciclos</span>
+                    <span class="law-desc">Grandezas e Processos</span>
+                </button>
+                <button class="nav-item" data-law="5">
+                    <span class="law-num">V2+</span>
+                    <span class="law-name">Mitos & Conceitos</span>
+                    <span class="law-desc">Desmistificando a Física</span>
+                </button>
+            </nav>
+
+            <!-- 3D Area -->
+            <section class="viewport-section" aria-label="Visualização 3D">
+                <div id="canvas-container">
+                    <!-- Three.js Canvas will be appended here -->
+                </div>
+                <!-- Interactive 3D Legend overlay -->
+                <div id="visual-legend" class="glass-panel text-xs">
+                    <div class="legend-title">Legenda de Temperatura</div>
+                    <div class="gradient-bar"></div>
+                    <div class="gradient-labels">
+                        <span>Frio (100 K)</span>
+                        <span>Morno</span>
+                        <span>Quente (400 K)</span>
+                    </div>
+                </div>
+                <!-- Real-time Charts Panel (V2) -->
+                <div id="charts-panel" class="glass-panel">
+                    <div class="charts-header">
+                        <span class="charts-title" id="charts-panel-title">Gráficos em Tempo Real</span>
+                        <button id="toggle-charts-btn" class="btn btn-secondary">Minimizar</button>
+                    </div>
+                    <div class="charts-content">
+                        <div class="chart-box">
+                            <canvas id="chart-1"></canvas>
+                        </div>
+                        <div class="chart-box">
+                            <canvas id="chart-2"></canvas>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carousel Container for Myths Tab (V2+) -->
+                <div id="carousel-container" class="hidden"></div>
+            </section>
+
+            <!-- Sidebar: Controls and Explanations -->
+            <aside class="sidebar-info glass-panel">
+                <!-- Info Section: Dynamically updated text -->
+                <div class="dynamic-info-container">
+                    <div class="info-header">
+                        <span class="badge" id="law-badge">Lei 0</span>
+                        <h2 id="law-title">Equilíbrio Térmico</h2>
+                    </div>
+                    
+                    <div class="formula-container" id="law-formula-box">
+                        <span class="formula-label">Fórmula:</span>
+                        <code class="formula" id="law-formula">Se A = B e B = C, então A = C</code>
+                    </div>
+
+                    <div class="tabs-info">
+                        <button class="tab-btn active" data-tab="explanation">Explicação</button>
+                        <button class="tab-btn" data-tab="applications">Aplicações</button>
+                        <button class="tab-btn" data-tab="formulas">Fórmulas & Porquês</button>
+                    </div>
+
+                    <div class="tab-content" id="tab-explanation">
+                        <p id="law-definition" class="law-definition-text">Definição curta da lei...</p>
+                        <div class="card-detail">
+                            <span class="card-title">Conceito Chave</span>
+                            <p id="law-explanation-text">Explicação detalhada...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content hidden" id="tab-applications">
+                        <div class="card-detail">
+                            <span class="card-title">Exemplo Cotidiano</span>
+                            <p id="law-daily-example">Exemplo cotidiano...</p>
+                        </div>
+                        <div class="card-detail">
+                            <span class="card-title">Ciência & Engenharia</span>
+                            <p id="law-practical-app">Uso prático em engenharia...</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tab-content hidden" id="tab-formulas">
+                        <!-- Demonstrador de fórmulas interativo injetado via JS (V2+) -->
+                    </div>
+                </div>
+
+                <!-- HUD Section: Real-time values -->
+                <section class="hud-section">
+                    <h3>Métricas de Estado</h3>
+                    <div class="hud-grid" id="hud-variables">
+                        <!-- Dynamic HUD items injected by JS -->
+                    </div>
+                </section>
+
+                <!-- Controls Section: Sliders and Buttons dynamic to active law -->
+                <section class="controls-section">
+                    <h3>Controles da Simulação</h3>
+                    <div id="dynamic-controls">
+                        <!-- Dynamic sliders/buttons injected by JS -->
+                    </div>
+                </section>
+            </aside>
+        </main>
+
+        <!-- Bottom Toolbar -->
+        <footer class="bottom-toolbar glass-panel">
+            <div class="toolbar-left">
+                <button id="play-pause-btn" class="btn btn-primary" title="Play/Pause">
+                    <svg class="icon" id="play-icon" viewBox="0 0 24 24" width="18" height="18">
+                        <path fill="currentColor" d="M8 5v14l11-7z"/>
+                    </svg>
+                    <svg class="icon hidden" id="pause-icon" viewBox="0 0 24 24" width="18" height="18">
+                        <path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/>
+                    </svg>
+                    <span id="play-text">Pausar</span>
+                </button>
+                <button id="reset-btn" class="btn btn-secondary" title="Resetar Simulação">
+                    <svg class="icon" viewBox="0 0 24 24" width="18" height="18">
+                        <path fill="currentColor" d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                    </svg>
+                    <span>Resetar</span>
+                </button>
+            </div>
+            
+            <div class="toolbar-right">
+                <div class="speed-control">
+                    <span class="label">Velocidade:</span>
+                    <input type="range" id="sim-speed" min="0.1" max="2" step="0.1" value="1">
+                    <span id="speed-display" class="value-badge">1.0x</span>
+                </div>
+            </div>
+            <div class="toolbar-credits" aria-hidden="true">Disciplina Optativa Termodinâmica · Seminário: Leis da Termodinâmica · Aluno: Efraim Almeida Fernandes · Profs. Adriano Ferreira Rozado e Marcelo Mendes Vieira</div>
+        </footer>
+    </div>
+
+    <!-- Tutorial Modal Popup -->
+    <div id="tutorial-modal" class="modal-overlay hidden">
+        <div class="modal-content glass-panel">
+            <button id="close-modal" class="close-btn" aria-label="Fechar">&times;</button>
+            <h2>Bem-vindo ao Laboratório Termodinâmico 3D</h2>
+            <p>Este simulador interativo foi projetado para visualizar e entender os princípios fundamentais que regem o calor, o trabalho e a entropia.</p>
+            
+            <div class="tutorial-steps">
+                <div class="step-card">
+                    <div class="step-num">1</div>
+                    <h4>Escolha a Lei</h4>
+                    <p>Use o menu lateral esquerdo para alternar entre as quatro leis da termodinâmica.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">2</div>
+                    <h4>Interaja em 3D</h4>
+                    <p>Arraste o mouse/touch no canvas central para orbitar a câmera, ou use a roda do mouse para dar zoom.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-num">3</div>
+                    <h4>Controle as Variáveis</h4>
+                    <p>Ajuste os controles deslizantes no painel direito e observe o comportamento físico e as fórmulas mudarem em tempo real.</p>
+                </div>
+            </div>
+
+            <button id="start-lab-btn" class="btn btn-primary">Entrar no Laboratório</button>
+        </div>
+    </div>
+
+    <!-- Three.js e OrbitControls locais (funciona offline) -->
+    <script src="vendor/three.min.js"></script>
+    <script src="vendor/OrbitControls.js"></script>
+    <!-- Main Script -->
+    <script src="charts.js"></script>
+    <script src="formula-demos.js"></script>
+    <script src="misconceptions.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
