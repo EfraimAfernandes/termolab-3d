@@ -45,6 +45,10 @@ Este simulador foi desenvolvido como **material de apoio para o seminário de ap
 
 ## 📥 Como usar
 
+### 🚀 Rápido (recomendado) — direto no navegador
+
+Abra **https://efraimafernandes.github.io/termolab-3d/** — funciona em qualquer computador (Windows, macOS, Linux) ou celular, sem instalar nada.
+
 ### Opção 1 — Desktop (Windows 10/11)
 
 | Arquivo | Descrição |
@@ -52,7 +56,7 @@ Este simulador foi desenvolvido como **material de apoio para o seminário de ap
 | **`Termodinamica3D-1.0.0-x64.exe`** | Instalador (cria atalho no Menu Iniciar e na Área de Trabalho) |
 | **`Termodinamica3D-1.0.0-portable.exe`** | Versão portátil — basta executar, sem instalar |
 
-Os arquivos estão em `publicacao/dist/` (também serão anexados às GitHub Releases).
+Disponíveis na [página de Releases](https://github.com/EfraimAfernandes/termolab-3d/releases) (ou em `publicacao/dist/` no código-fonte).
 
 > Se o Windows SmartScreen exibir um aviso de "editor desconhecido": clique em **Mais informações → Executar assim mesmo** (o app não é assinado digitalmente).
 
